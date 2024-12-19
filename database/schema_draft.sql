@@ -1,0 +1,18 @@
+-- GYMWeb Database Schema DDL Draft
+CREATE TABLE [dbo].[Members] (
+    [Id] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+    [Name] NVARCHAR(100) NOT NULL,
+    [Email] NVARCHAR(100) NOT NULL,
+    [Phone] NVARCHAR(20) NOT NULL,
+    [Gender] NVARCHAR(10) NULL,
+    [JoinDate] DATETIME2 NOT NULL DEFAULT GETUTCDATE(),
+    [IsActive] BIT NOT NULL DEFAULT 1
+);
+
+CREATE TABLE [dbo].[Employees] (
+    [Id] INT IDENTITY(1,1) NOT NULL PRIMARY KEY,
+    [Name] NVARCHAR(100) NOT NULL,
+    [Role] NVARCHAR(50) NOT NULL,
+    [Specialty] NVARCHAR(100) NULL,
+    [Salary] DECIMAL(18,2) NOT NULL
+);
