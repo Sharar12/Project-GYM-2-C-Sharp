@@ -1,0 +1,14 @@
+{
+  "membershipPlans": [
+    {"name": "Standard Bronze", "durationMonths": 1, "fee": 25.00},
+    {"name": "Silver Fitness", "durationMonths": 3, "fee": 65.00},
+    {"name": "Gold Premium", "durationMonths": 6, "fee": 120.00},
+    {"name": "Platinum VIP", "durationMonths": 12, "fee": 200.00}
+  ],
+  "equipmentCategories": [
+    "Cardio & Treadmills",
+    "Free Weights & Dumbbells",
+    "Resistance Machines",
+    "Recovery & Sauna"
+  ]
+}
