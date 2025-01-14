@@ -1,0 +1,249 @@
+/* General Styles */
+html {
+    font-size: 16px;
+    background-color: #121212;
+    color: #ffffff;
+}
+
+/* Set the body background image */
+body {
+    background-color: #ffffff; /* Dark grey color */
+    color: #ffffff; /* Set text color to white for contrast */
+}
+
+
+
+
+
+
+
+.btn-primary {
+    border-color: #00ffff; /* Cyan border */
+    background-color: #00ffff; /* Cyan background */ /* Changed to cyan */
+    color: #ffffff; /* White text */
+    box-shadow: 0 0 8px #00ffff; /* Cyan glow */
+}
+
+    .btn-primary:hover {
+        border-color: #ff0000; /* Red border on hover */
+        background-color: #ff0000; /* Red background */ /* Changed to red */
+        color: #ffffff; /* White text */
+        text-shadow: 0px 0px 40px #ff0000; /* Red glowing effect on text */
+        box-shadow: 0px 0px 60px #ff0000; /* Red glow around the button */
+    }
+
+    .btn-primary:focus, .btn-primary:active:focus {
+        box-shadow: 0 0 10px #ff0000, 0 0 20px #ff0000; /* Stronger red glow on focus */
+    }
+
+    /* Ensure white glowing text */
+    .btn, .btn:hover, .btn:focus, .btn:active, .btn-primary, .btn-primary:hover, .btn-primary:focus, .btn-primary:active {
+        color: #ffffff; /* White text */
+        text-shadow: 0px 0px 10px #ffffff; /* White glowing text */
+    }
+
+/* ... (Existing button styles) ... */
+
+.btn {
+    border-color: #00ffff; /* Cyan border */
+    background-color: #00ffff; /* Cyan background */
+    color: #ffffff; /* White text */
+    box-shadow: 0 0 8px #00ffff; /* Cyan glow */
+}
+
+    .btn:hover {
+        border-color: #00ff00; /* Green border on hover */
+        background-color: #00ff00; /* Green background */
+        color: #ffffff; /* White text */
+        text-shadow: 0px 0px 40px #00ff00; /* Green glowing effect on text */
+        box-shadow: 0px 0px 60px #00ff00; /* Green glow around the button */
+    }
+
+    .btn:focus, .btn:active:focus {
+        box-shadow: 0 0 10px #00ff00, 0 0 20px #00ff00; /* Stronger green glow on focus */
+    }
+
+.glowing-button {
+    background: gold;
+    color: white; /* Always white text */
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    text-shadow: 0 0 10px white; /* Always glowing text */
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out, text-shadow 0.3s ease-in-out;
+    box-shadow: 0 0 10px red;
+}
+
+    .glowing-button:hover {
+        background: red;
+        box-shadow: 0 0 20px red; /* More glow on hover */
+        text-shadow: 0 0 20px white; /* More glowing text on hover */
+    }
+
+
+
+/* Form Inputs */
+/* Fix for input fields (typing text visibility) */
+.form-control {
+    background-color: #1a1a1a;
+    color: #ffffff; /* White text */
+    border: 2px solid #00eaff;
+    padding: 10px;
+    border-radius: 6px;
+}
+
+    .form-control::placeholder {
+        color: #bbbbbb; /* Light gray placeholder text */
+    }
+
+    .form-control:focus {
+        background-color: #1e1e1e;
+        border-color: #00eaff;
+        color: #ffffff;
+        box-shadow: 0px 0px 10px #00eaff;
+    }
+
+/* Fix for text selection (highlighted text visibility) */
+::selection {
+    background: #00eaff; /* Neon blue highlight */
+    color: #121212; /* Dark text when selected */
+}
+
+
+/* Links */
+/* Default state: White glow for <a> */
+a {
+    color: #ffffff; /* White color for text */
+    text-shadow: 0px 0px 10px #ffffff; /* White glow */
+    transition: 0.3s; /* Smooth transition for hover effect */
+}
+
+    /* Hover state: Blue glow for <a> */
+    a:hover {
+        color: #00eaff; /* Blue color for text on hover */
+        text-shadow: 0px 0px 10px #00eaff; /* Blue glow on hover */
+    }
+
+
+/* Navbar */
+.navbar {
+    background-color: #1a1a1a;
+    border-bottom: 2px solid #00eaff;
+}
+
+    .navbar a {
+        color: #00eaff !important;
+    }
+
+        .navbar a:hover {
+            color: #ffffff !important;
+        }
+
+/* Cards */
+.card {
+    background: linear-gradient(145deg, #1a1a1a, #222222);
+    border: 1px solid #00eaff;
+    border-radius: 12px;
+    box-shadow: 0px 0px 15px rgba(0, 234, 255, 0.3);
+    color: white;
+}
+
+.card-header {
+    background: #00eaff;
+    color: #121212;
+    font-weight: bold;
+}
+
+/* Membership Packages */
+.membership {
+    border: 2px solid #00eaff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px #00eaff;
+}
+
+/* Footer */
+footer {
+    background-color: #1a1a1a;
+    padding: 15px;
+    text-align: center;
+    color: #ffffff;
+    border-top: 2px solid #00eaff;
+}
+
+    footer a {
+        color: #00eaff;
+    }
+
+/* Glowing border with curved corners for images */
+img.img-fluid {
+    border: 2px solid rgba(0, 255, 255, 0.8);
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.6);
+    border-radius: 15px; /* Curved corners */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+    img.img-fluid:hover {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(0, 255, 255, 1);
+    }
+
+/* Glowing border with curved corners for package boxes */
+.card {
+    border: 2px solid rgba(0, 255, 255, 0.8); /* Yellow border with slight opacity */
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.6); /* Subtle yellow glow */
+    border-radius: 15px; /* Curved corners */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+    .card:hover {
+        transform: scale(1.05); /* Slight zoom effect on hover */
+        box-shadow: 0 0 20px rgba(0, 255, 255, 1); /* Stronger yellow glow on hover */
+        border: 2px solid rgba(0, 255, 255, 1); /* Solid yellow border on hover */
+    }
+
+
+/* Default state for headings: Blue color and no glow */
+/* Default state for headings: White glow */
+h1, h2, h3 {
+    color: #00eaff; /* Initial color */
+    text-shadow: 0px 0px 20px #00eaff; /* White glow */
+    transition: color 0.3s, text-shadow 0.3s; /* Smooth transition for color and shadow */
+}
+
+    /* Hover state for headings: White color and blue glow */
+    h1:hover, h2:hover, h3:hover {
+        color: #ffffff; /* Change color on hover */
+        text-shadow: 0px 0px 30px #00eaff; /* Glowing effect in blue on hover */
+    }
+
+
+
+/* Make <p>, <h4>, and <li> text glow white without hover */
+p, h4, li {
+    color: #ffffff; /* Set text color to white */
+    text-shadow: 0px 0px 10px #ffffff; /* Glowing white effect */
+    transition: text-shadow 0.3s; /* Optional: Smooth transition for glow effect */
+}
+
+    p:hover, h4:hover, li:hover {
+        color: lime; /* Change color on hover */
+        text-shadow: 0px 0px 20px green; /* Glowing effect in blue on hover */
+    }
+
+
+/* Glow effect and white color for the text */
+.glowing-text {
+    color: white;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #f00, /* Changed to #f00 (red) */
+    0 0 20px #f00, 0 0 25px #f00, 0 0 30px #f00, /* Changed to #f00 (red) */
+    0 0 35px #f00; /* Changed to #f00 (red) */
+}
+/* Glow effect for the username and password headers */
+.glowing-header {
+    color: white;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 25px #ff00ff, 0 0 30px #ff00ff, 0 0 35px #ff00ff;
+}
