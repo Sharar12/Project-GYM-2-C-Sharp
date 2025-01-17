@@ -1,0 +1,7 @@
+:root {
+  --gym-primary: #198754;
+  --gym-accent: #ffc107;
+  --gym-dark: #212529;
+}
+.badge-plan-active { background-color: var(--gym-primary); color: #fff; }
+.badge-plan-expiring { background-color: var(--gym-accent); color: #000; }
