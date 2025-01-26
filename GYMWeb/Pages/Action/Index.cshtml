@@ -1,0 +1,17 @@
+﻿@page
+@model GYMWeb.Pages.Action.IndexModel
+@{
+    ViewData["Title"] = "Choose Signup";
+}
+
+<h1>Choose Signup Type</h1>
+<hr />
+
+<div class="text-center">
+    <a asp-page="MemberSignup" class="btn btn-primary btn-lg m-2">Sign Up as Member</a>
+    <a asp-page="EmployeeSignup" class="btn btn-secondary btn-lg m-2">Sign Up as Employee</a>
+</div>
+
+<div>
+    <a asp-page="SignIn" class="btn btn-outline-dark">Already have an account? Sign In</a>
+</div>
