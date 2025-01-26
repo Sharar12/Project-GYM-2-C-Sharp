@@ -1,0 +1,55 @@
+﻿@page
+@model GYMWeb.Pages.Action.MemberListModel
+
+@{
+    ViewData["Title"] = "Member List";
+}
+
+<h1>Member List</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th class="glowing-header">Name</th>
+            <th class="glowing-header">Age</th>
+            <th class="glowing-header">Weight (kg)</th>
+            <th class="glowing-header">Height (cm)</th>
+            <th class="glowing-header">BMI</th>
+            <th class="glowing-header">Body Fat %</th>
+            <th class="glowing-header">Lean Body Mass (kg)</th>
+            <th class="glowing-header">BMR (Calories/day)</th>
+            <th class="glowing-header">Caloric Needs</th>
+            <th class="glowing-header">Health Comment</th>
+            <th class="glowing-header">Package</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var member in Model.Members)
+        {
+            double bmi = Model.CalculateBMI(member.weight, member.height);
+            double bodyFat = Model.CalculateBodyFat(member.gender, bmi, member.age);
+            double leanBodyMass = Model.CalculateLeanBodyMass(member.weight, bodyFat);
+            double bmr = Model.CalculateBMR(member.gender, member.weight, member.height, member.age);
+            double caloricNeeds = Model.CalculateCaloricNeeds(bmr);
+            string healthComment = Model.GetHealthComment(bmi);
+
+            <tr>
+                <td class="glowing-text">@member.name</td>
+                <td class="glowing-text">@member.age</td>
+                <td class="glowing-text">@member.weight</td>
+                <td class="glowing-text">@member.height</td>
+                <td class="glowing-text">@bmi.ToString("F2")</td>
+                <td class="glowing-text">@bodyFat.ToString("F2")%</td>
+                <td class="glowing-text">@leanBodyMass.ToString("F2")</td>
+                <td class="glowing-text">@bmr.ToString("F2")</td>
+                <td class="glowing-text">@caloricNeeds.ToString("F2") kcal/day</td>
+                <td class="glowing-text">@healthComment</td>
+                <td class="glowing-text">@member.package</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-page="EmployeeDashboard" asp-route-id="@Model.EmployeeId" class="btn btn-secondary">Back to Dashboard</a>
+</div>
