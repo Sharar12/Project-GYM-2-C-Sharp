@@ -1,0 +1,128 @@
+﻿@page
+@model GYMWeb.Pages.Action.MemberSignupModel
+@{
+    ViewData["Title"] = "Member Signup";
+}
+
+<h1 class="text-center">Member Signup</h1>
+<hr />
+
+<h4 class="text-center">Member</h4>
+<hr />
+
+<div class="d-flex justify-content-center">
+    <div class="col-md-8">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label asp-for="Member.name" class="control-label"></label>
+                        <input asp-for="Member.name" class="form-control" />
+                        <span asp-validation-for="Member.name" class="text-danger"></span>
+                    </div>                   
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Member.Address" class="control-label"></label>
+                        <input asp-for="Member.Address" class="form-control" />
+                        <span asp-validation-for="Member.Address" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Member.age" class="control-label"></label>
+                        <input asp-for="Member.age" class="form-control" />
+                        <span asp-validation-for="Member.age" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Member.weight" class="control-label"></label>
+                        <input asp-for="Member.weight" class="form-control" />
+                        <span asp-validation-for="Member.weight" class="text-danger"></span>
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Member.email" class="control-label"></label>
+                        <input asp-for="Member.email" class="form-control" />
+                        <span asp-validation-for="Member.email" class="text-danger"></span>
+                    </div>
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Member.password" class="control-label"></label>
+                        <input asp-for="Member.password" type="password" class="form-control" />
+                        <span asp-validation-for="Member.password" class="text-danger"></span>
+                    </div>
+
+                    
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Member.height" class="control-label"></label>
+                        <input asp-for="Member.height" class="form-control" />
+                        <span asp-validation-for="Member.height" class="text-danger"></span>
+                    </div>
+
+
+                    <div class="form-group mb-3">
+                        <label asp-for="Member.phone" class="control-label"></label>
+                        <input asp-for="Member.phone" class="form-control" />
+                        <span asp-validation-for="Member.phone" class="text-danger"></span>
+                    </div>
+
+                    
+                </div>
+            </div>
+
+            <!-- All dropdowns in a single row -->
+            <div class="row mt-3">
+                <div class="col-md-4">
+                    <label asp-for="Member.package" class="control-label"></label>
+                    <select asp-for="Member.package" class="form-control">
+                        <option value="">-- Select Membership Package --</option>
+                        <option value="Basic">Basic</option>
+                        <option value="Standard">Standard</option>
+                        <option value="Premium">Premium</option>
+                    </select>
+                    <span asp-validation-for="Member.package" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-4">
+                    <label asp-for="Member.gender" class="control-label"></label>
+                    <select asp-for="Member.gender" class="form-control">
+                        <option value="">-- Select Gender --</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    <span asp-validation-for="Member.gender" class="text-danger"></span>
+                </div>
+
+                <div class="col-md-4">
+                    <label asp-for="Member.paymentMethod" class="control-label"></label>
+                    <select asp-for="Member.paymentMethod" class="form-control">
+                        <option value="">-- Select Payment Method --</option>
+                        <option value="Credit Card">Credit Card</option>
+                        <option value="Debit Card">Debit Card</option>
+                        <option value="Cash">Cash</option>
+                        <option value="Bkash">Bkash</option>
+                    </select>
+                    <span asp-validation-for="Member.paymentMethod" class="text-danger"></span>
+                </div>
+            </div>
+
+
+            <!-- Centered Submit Button -->
+            <div class="form-group text-center mt-4">
+                <input type="submit" value="Create" class="btn btn-primary w-50" />
+            </div>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
