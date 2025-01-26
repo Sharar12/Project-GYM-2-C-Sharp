@@ -1,0 +1,128 @@
+﻿@page
+@model GYMWeb.Pages.Employees.EEditModel
+
+@{
+    ViewData["Title"] = "Edit Employee"; // More descriptive title
+}
+
+<h1>Edit Employee</h1> @* More descriptive heading *@
+<hr />
+
+<div class="row justify-content-center">
+    @* Centered form *@
+    <div class="col-md-8">
+        <div class="card">
+            @* Card for the form *@
+            <div class="card-body">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Employee.Id" />
+
+                    <div class="row mb-3">
+                        @* Name and Email in one row *@
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input asp-for="Employee.name" class="form-control" placeholder="Name" required />
+                                <label asp-for="Employee.name">Name</label>
+                                <span asp-validation-for="Employee.name" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input asp-for="Employee.email" class="form-control" placeholder="Email" type="email" required /> @* Email type added *@
+                                <label asp-for="Employee.email">Email</label>
+                                <span asp-validation-for="Employee.email" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        @* Password and Age in one row *@
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input asp-for="Employee.password" class="form-control" placeholder="Password" type="password" required />
+                                <label asp-for="Employee.password">Password</label>
+                                <span asp-validation-for="Employee.password" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input asp-for="Employee.age" class="form-control" placeholder="Age" type="number" required />
+                                <label asp-for="Employee.age">Age</label>
+                                <span asp-validation-for="Employee.age" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        @* Address and Phone in one row *@
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input asp-for="Employee.address" class="form-control" placeholder="Address" required />
+                                <label asp-for="Employee.address">Address</label>
+                                <span asp-validation-for="Employee.address" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input asp-for="Employee.phone" class="form-control" placeholder="Phone" required />
+                                <label asp-for="Employee.phone">Phone</label>
+                                <span asp-validation-for="Employee.phone" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        @* Gender and Role in one row *@
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <select asp-for="Employee.gender" class="form-control" required>
+                                    <option value="">-- Select Gender --</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                                <label asp-for="Employee.gender">Gender</label>
+                                <span asp-validation-for="Employee.gender" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input asp-for="Employee.role" class="form-control" placeholder="Role" required />
+                                <label asp-for="Employee.role">Role</label>
+                                <span asp-validation-for="Employee.role" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        @* Experience and Schedule in one row *@
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input asp-for="Employee.experience" class="form-control" placeholder="Experience" type="number" required /> @* Number type added *@
+                                <label asp-for="Employee.experience">Experience (Years)</label> @* Label improved *@
+                                <span asp-validation-for="Employee.experience" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input asp-for="Employee.schedule" class="form-control" placeholder="Schedule" required />
+                                <label asp-for="Employee.schedule">Schedule</label>
+                                <span asp-validation-for="Employee.schedule" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2 mt-4">
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
