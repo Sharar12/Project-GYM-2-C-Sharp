@@ -1,0 +1,54 @@
+﻿@page
+@model GYMWeb.Pages.Admins.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1 class="text-center">Edit</h1>
+
+<h4 class="text-center">Admin</h4>
+<hr />
+
+<div class="d-flex justify-content-center">
+    <div class="col-md-8">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Admin.Id" />
+
+            <!-- First row for username and password -->
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label asp-for="Admin.userName" class="control-label"></label>
+                        <input asp-for="Admin.userName" class="form-control" />
+                        <span asp-validation-for="Admin.userName" class="text-danger"></span>
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="form-group mb-3">
+                        <label asp-for="Admin.password" class="control-label"></label>
+                        <input asp-for="Admin.password" class="form-control" />
+                        <span asp-validation-for="Admin.password" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Save button -->
+            <div class="form-group text-center mt-4">
+                <input type="submit" value="Save" class="btn btn-primary w-50" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="text-center">
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
