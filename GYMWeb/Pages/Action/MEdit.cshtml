@@ -1,0 +1,151 @@
+﻿@page
+@model GYMWeb.Pages.Action.MEditModel
+
+@{
+    ViewData["Title"] = "Edit Member"; // More descriptive title
+}
+
+<h1>Edit Member</h1> @* More descriptive heading *@
+<hr />
+
+<div class="row justify-content-center">
+    @* Centered form *@
+    <div class="col-md-8">
+        @* Adjusted column width for larger screens *@
+        <div class="card">
+            @* Card for the form *@
+            <div class="card-body">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Member.Id" />
+
+                    <div class="row mb-3">
+                        @* Name and Email in one row *@
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input asp-for="Member.name" class="form-control" placeholder="Name" required /> @* Required added *@
+                                <label asp-for="Member.name">Name</label>
+                                <span asp-validation-for="Member.name" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input asp-for="Member.email" class="form-control" placeholder="Email" required /> @* Required added *@
+                                <label asp-for="Member.email">Email</label>
+                                <span asp-validation-for="Member.email" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        @* Password and Address in one row *@
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input asp-for="Member.password" class="form-control" placeholder="Password" type="password" required /> @* Password type and required added *@
+                                <label asp-for="Member.password">Password</label>
+                                <span asp-validation-for="Member.password" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input asp-for="Member.Address" class="form-control" placeholder="Address" required /> @* Required added *@
+                                <label asp-for="Member.Address">Address</label>
+                                <span asp-validation-for="Member.Address" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        @* Gender and Phone in one row *@
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <select asp-for="Member.gender" class="form-control" required>
+                                    @* Select and required added *@
+                                    <option value="">-- Select Gender --</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                                <label asp-for="Member.gender">Gender</label>
+                                <span asp-validation-for="Member.gender" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <input asp-for="Member.phone" class="form-control" placeholder="Phone" required /> @* Required added *@
+                                <label asp-for="Member.phone">Phone</label>
+                                <span asp-validation-for="Member.phone" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        @* Age, Weight, and Height in one row *@
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <input asp-for="Member.age" class="form-control" placeholder="Age" type="number" required /> @* Number type and required added *@
+                                <label asp-for="Member.age">Age</label>
+                                <span asp-validation-for="Member.age" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <input asp-for="Member.weight" class="form-control" placeholder="Weight (kg)" type="number" required /> @* Number type and required added *@
+                                <label asp-for="Member.weight">Weight (kg)</label>
+                                <span asp-validation-for="Member.weight" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                <input asp-for="Member.height" class="form-control" placeholder="Height (cm)" type="number" required /> @* Number type and required added *@
+                                <label asp-for="Member.height">Height (cm)</label>
+                                <span asp-validation-for="Member.height" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        @* Package and Payment in one row *@
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <select asp-for="Member.package" class="form-control" required>
+                                    @* Select and required added *@
+                                    <option value="">-- Select Package --</option>
+                                    <option value="Basic">Basic</option>
+                                    <option value="Standard">Standard</option>
+                                    <option value="Premium">Premium</option>
+                                </select>
+                                <label asp-for="Member.package">Package</label>
+                                <span asp-validation-for="Member.package" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <select asp-for="Member.paymentMethod" class="form-control" required>
+                                    @* Select and required added *@
+                                    <option value="">-- Select Payment --</option>
+                                    <option value="Credit Card">Credit Card</option>
+                                    <option value="Debit Card">Debit Card</option>
+                                    <option value="Cash">Cash</option>
+                                    <option value="Bkash">Bkash</option>
+                                </select>
+                                <label asp-for="Member.paymentMethod">Payment</label>
+                                <span asp-validation-for="Member.paymentMethod" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-grid gap-2 mt-4">
+                        @* Full-width submit button *@
+                        <input type="submit" value="Save" class="btn btn-primary" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
