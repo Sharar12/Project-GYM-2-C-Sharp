@@ -1,0 +1,96 @@
+﻿@page
+@model GYMWeb.Pages.Action.MDetailsModel
+
+@{
+    ViewData["Title"] = "Member Details"; // More descriptive title
+    double bmi = Model.CalculateBMI();
+    double bodyFat = Model.CalculateBodyFat();
+    double leanBodyMass = Model.CalculateLeanBodyMass();
+    double bmr = Model.CalculateBMR();
+    double caloricNeeds = Model.CalculateCaloricNeeds();
+    string healthComment = Model.GetHealthComment();
+}
+
+<h1>Member Details</h1> @* More descriptive heading *@
+<hr />
+
+<div class="row">
+    <div class="col-md-6">
+        @* Member Info in one column *@
+        <div class="card mb-4">
+            @* Card for Member Info *@
+            <div class="card-header bg-primary text-white">
+                <h4 class="card-title">Member Information</h4>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Member.name) </dt>
+                    <dd class="col-sm-8"> @Html.DisplayFor(model => model.Member.name) </dd>
+
+                    <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Member.email) </dt>
+                    <dd class="col-sm-8"> @Html.DisplayFor(model => model.Member.email) </dd>
+
+                    <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Member.gender) </dt>
+                    <dd class="col-sm-8"> @Html.DisplayFor(model => model.Member.gender) </dd>
+
+                    <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Member.Address) </dt>
+                    <dd class="col-sm-8"> @Html.DisplayFor(model => model.Member.Address) </dd>
+
+                    <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Member.phone) </dt>
+                    <dd class="col-sm-8"> @Html.DisplayFor(model => model.Member.phone) </dd>
+
+                    <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Member.age) </dt>
+                    <dd class="col-sm-8"> @Html.DisplayFor(model => model.Member.age) </dd>
+
+                    <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Member.weight) </dt>
+                    <dd class="col-sm-8"> @Html.DisplayFor(model => model.Member.weight) kg</dd>
+
+                    <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Member.height) </dt>
+                    <dd class="col-sm-8"> @Html.DisplayFor(model => model.Member.height) cm</dd>
+
+                    <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Member.package) </dt>
+                    <dd class="col-sm-8"> @Html.DisplayFor(model => model.Member.package) </dd>
+
+                    <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Member.paymentMethod) </dt>
+                    <dd class="col-sm-8"> @Html.DisplayFor(model => model.Member.paymentMethod) </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-6">
+        @* Health Metrics in another column *@
+        <div class="card mb-4">
+            @* Card for Health Metrics *@
+            <div class="card-header bg-success text-white">
+                <h4 class="card-title">Health Metrics</h4>
+            </div>
+            <div class="card-body">
+                <dl class="row">
+                    <dt class="col-sm-4">BMI</dt>
+                    <dd class="col-sm-8">@bmi.ToString("F2")</dd>
+
+                    <dt class="col-sm-4">Body Fat Percentage</dt>
+                    <dd class="col-sm-8">@bodyFat.ToString("F2") %</dd>
+
+                    <dt class="col-sm-4">Lean Body Mass</dt>
+                    <dd class="col-sm-8">@leanBodyMass.ToString("F2") kg</dd>
+
+                    <dt class="col-sm-4">BMR (Calories/day)</dt>
+                    <dd class="col-sm-8">@bmr.ToString("F2")</dd>
+
+                    <dt class="col-sm-4">Caloric Needs (Maintenance)</dt>
+                    <dd class="col-sm-8">@caloricNeeds.ToString("F2") kcal/day</dd>
+
+                    <dt class="col-sm-4">Health Comment</dt>
+                    <dd class="col-sm-8">@healthComment</dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-3 d-flex justify-content-end">
+    @* Flexbox for buttons, aligned to the right *@
+    <a asp-page="MEdit" asp-route-id="@Model.Member.Id" class="btn btn-warning me-2">Edit</a> @* Margin added to Edit button *@
+    <a asp-page="/Index" class="btn btn-danger">Log Out</a> @* Danger button for logout *@
+</div>
