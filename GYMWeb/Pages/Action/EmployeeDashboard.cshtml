@@ -1,0 +1,59 @@
+﻿@page
+@model GYMWeb.Pages.Action.EDetailsModel
+
+@{
+    ViewData["Title"] = "Employee Details"; // More descriptive title
+}
+
+<h1>Employee Details</h1> @* More descriptive heading *@
+<hr />
+
+<div class="card mb-4">
+    @* Card for Employee Info *@
+    <div class="card-header bg-primary text-white">
+        <h4 class="card-title">Employee Information</h4>
+    </div>
+    <div class="card-body">
+        <dl class="row">
+            <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Employee.name) </dt>
+            <dd class="col-sm-8"> @Html.DisplayFor(model => model.Employee.name) </dd>
+
+            <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Employee.email) </dt>
+            <dd class="col-sm-8"> @Html.DisplayFor(model => model.Employee.email) </dd>
+
+            <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Employee.password) </dt>
+            <dd class="col-sm-8"> @Html.DisplayFor(model => model.Employee.password) </dd>
+
+            <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Employee.age) </dt>
+            <dd class="col-sm-8"> @Html.DisplayFor(model => model.Employee.age) </dd>
+
+            <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Employee.address) </dt>
+            <dd class="col-sm-8"> @Html.DisplayFor(model => model.Employee.address) </dd>
+
+            <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Employee.phone) </dt>
+            <dd class="col-sm-8"> @Html.DisplayFor(model => model.Employee.phone) </dd>
+
+            <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Employee.gender) </dt>
+            <dd class="col-sm-8"> @Html.DisplayFor(model => model.Employee.gender) </dd>
+
+            <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Employee.role) </dt>
+            <dd class="col-sm-8"> @Html.DisplayFor(model => model.Employee.role) </dd>
+
+            <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Employee.experience) </dt>
+            <dd class="col-sm-8"> @Html.DisplayFor(model => model.Employee.experience) </dd>
+
+            <dt class="col-sm-4"> @Html.DisplayNameFor(model => model.Employee.schedule) </dt>
+            <dd class="col-sm-8"> @Html.DisplayFor(model => model.Employee.schedule) </dd>
+        </dl>
+    </div>
+</div>
+
+<div class="d-flex justify-content-between">
+    @* Flexbox for buttons, space between *@
+    <a asp-page="EEdit" asp-route-id="@Model.Employee.Id" class="btn btn-warning">Edit</a>
+    <div>
+        @* Container for other buttons, aligned right *@
+        <a asp-page="./MemberList" asp-route-employeeId="@Model.Employee.Id" class="btn btn-primary me-2">Member Details</a> @* Margin added *@
+        <a asp-page="/Index" class="btn btn-danger">Log Out</a> @* Danger button for logout *@
+    </div>
+</div>
