@@ -1,0 +1,159 @@
+﻿@page
+@model GYMWeb.Pages.Members.EditModel
+
+@{
+    ViewData["Title"] = "Edit Member"; // More descriptive title
+}
+
+<h1 class="text-center">Edit Member</h1>  @* More descriptive heading *@
+<hr />
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            @* Card for the form *@
+            <div class="card-body">
+                <form method="post">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    <input type="hidden" asp-for="Member.Id" />
+
+                    <div class="row mb-3">
+                        @* Combined name and email in one row *@
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                @* Floating labels *@
+                                <input asp-for="Member.name" class="form-control" placeholder="Name" /> @* Placeholder added *@
+                                <label asp-for="Member.name">Name</label> @* Label inside input group *@
+                                <span asp-validation-for="Member.name" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                @* Floating labels *@
+                                <input asp-for="Member.email" class="form-control" placeholder="Email" /> @* Placeholder added *@
+                                <label asp-for="Member.email">Email</label> @* Label inside input group *@
+                                <span asp-validation-for="Member.email" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        @* Combined address and password in one row *@
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                @* Floating labels *@
+                                <input asp-for="Member.Address" class="form-control" placeholder="Address" /> @* Placeholder added *@
+                                <label asp-for="Member.Address">Address</label> @* Label inside input group *@
+                                <span asp-validation-for="Member.Address" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                @* Floating labels *@
+                                <input asp-for="Member.password" class="form-control" placeholder="Password" type="password" /> @* Password input *@
+                                <label asp-for="Member.password">Password</label> @* Label inside input group *@
+                                <span asp-validation-for="Member.password" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        @* Combined age, weight, height, and phone in one row *@
+                        <div class="col-md-3">
+                            <div class="form-floating">
+                                @* Floating labels *@
+                                <input asp-for="Member.age" class="form-control" placeholder="Age" type="number" /> @* Placeholder added *@
+                                <label asp-for="Member.age">Age</label> @* Label inside input group *@
+                                <span asp-validation-for="Member.age" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-floating">
+                                @* Floating labels *@
+                                <input asp-for="Member.weight" class="form-control" placeholder="Weight (KG)" type="number" /> @* Placeholder added *@
+                                <label asp-for="Member.weight">Weight (KG)</label> @* Label inside input group *@
+                                <span asp-validation-for="Member.weight" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-floating">
+                                @* Floating labels *@
+                                <input asp-for="Member.height" class="form-control" placeholder="Height (CM)" type="number" /> @* Placeholder added *@
+                                <label asp-for="Member.height">Height (CM)</label> @* Label inside input group *@
+                                <span asp-validation-for="Member.height" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="form-floating">
+                                @* Floating labels *@
+                                <input asp-for="Member.phone" class="form-control" placeholder="Phone" /> @* Placeholder added *@
+                                <label asp-for="Member.phone">Phone</label> @* Label inside input group *@
+                                <span asp-validation-for="Member.phone" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        @* Combined package, gender and payment in one row *@
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                @* Floating labels *@
+                                <select asp-for="Member.package" class="form-control">
+                                    <option value="">-- Select Package --</option>
+                                    <option value="Basic">Basic</option>
+                                    <option value="Standard">Standard</option>
+                                    <option value="Premium">Premium</option>
+                                </select>
+                                <label asp-for="Member.package">Package</label> @* Label inside input group *@
+                                <span asp-validation-for="Member.package" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                @* Floating labels *@
+                                <select asp-for="Member.gender" class="form-control">
+                                    <option value="">-- Select Gender --</option>
+                                    <option value="Male">Male</option>
+                                    <option value="Female">Female</option>
+                                </select>
+                                <label asp-for="Member.gender">Gender</label> @* Label inside input group *@
+                                <span asp-validation-for="Member.gender" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-floating">
+                                @* Floating labels *@
+                                <select asp-for="Member.paymentMethod" class="form-control">
+                                    <option value="">-- Select Payment --</option>
+                                    <option value="Credit Card">Credit Card</option>
+                                    <option value="Debit Card">Debit Card</option>
+                                    <option value="Cash">Cash</option>
+                                    <option value="Bkash">Bkash</option>
+                                </select>
+                                <label asp-for="Member.paymentMethod">Payment</label> @* Label inside input group *@
+                                <span asp-validation-for="Member.paymentMethod" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="d-grid gap-2 mt-4">
+                        @* Full-width submit button *@
+                        <input type="submit" value="Save" class="btn glowing-button" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="mt-3 text-center">
+    @* Centered "Back to List" link *@
+    <a asp-page="Index" class="btn btn-danger">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

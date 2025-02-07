@@ -1,0 +1,115 @@
+﻿@page
+@model GYMWeb.Pages.Members.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Members</h1>
+
+<p>
+    <a asp-page="Create" class="btn btn-danger">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="glowing-header">
+                @Html.DisplayNameFor(model => model.Member[0].Id).ToString().ToUpper()
+            </th>
+            <th class="glowing-header">
+                @Html.DisplayNameFor(model => model.Member[0].name).ToString().ToUpper()
+            </th>
+            <th class="glowing-header">
+                @Html.DisplayNameFor(model => model.Member[0].email).ToString().ToUpper()
+            </th>
+            <th class="glowing-header">
+                @Html.DisplayNameFor(model => model.Member[0].password).ToString().ToUpper()
+            </th>
+            <th class="glowing-header">
+                @Html.DisplayNameFor(model => model.Member[0].gender).ToString().ToUpper()
+            </th>
+            <th class="glowing-header">
+                @Html.DisplayNameFor(model => model.Member[0].Address).ToString().ToUpper()
+            </th>
+            <th class="glowing-header">
+                @Html.DisplayNameFor(model => model.Member[0].phone).ToString().ToUpper()
+            </th>
+            <th class="glowing-header">
+                @Html.DisplayNameFor(model => model.Member[0].age).ToString().ToUpper()
+            </th>
+            <th class="glowing-header">
+                @Html.DisplayNameFor(model => model.Member[0].weight).ToString().ToUpper()&nbsp;(KG)
+            </th>
+            <th class="glowing-header">
+                @Html.DisplayNameFor(model => model.Member[0].height).ToString().ToUpper()&nbsp;(CM)
+            </th>
+            <th class="glowing-header">
+                @Html.DisplayNameFor(model => model.Member[0].package).ToString().ToUpper()
+            </th>
+            <th class="glowing-header">
+                @Html.DisplayNameFor(model => model.Member[0].paymentMethod).ToString().ToUpper()
+            </th>
+            <th class="glowing-header">ACTIONS</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Member)
+        {
+            <tr>
+                <td class="glowing-text">
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td class="glowing-text">
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td class="glowing-text">
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td class="glowing-text">
+                    @Html.DisplayFor(modelItem => item.password)
+                </td>
+                <td class="glowing-text">
+                    @Html.DisplayFor(modelItem => item.gender)
+                </td>
+                <td class="glowing-text">
+                    @Html.DisplayFor(modelItem => item.Address)
+                </td>
+                <td class="glowing-text">
+                    @Html.DisplayFor(modelItem => item.phone)
+                </td>
+                <td class="glowing-text">
+                    @Html.DisplayFor(modelItem => item.age)
+                </td>
+                <td class="glowing-text">
+                    @Html.DisplayFor(modelItem => item.weight)
+                </td>
+                <td class="glowing-text">
+                    @Html.DisplayFor(modelItem => item.height)
+                </td>
+                <td class="glowing-text">
+                    @Html.DisplayFor(modelItem => item.package)
+                </td>
+                <td class="glowing-text">
+                    @Html.DisplayFor(modelItem => item.paymentMethod)
+                </td>
+                <td>
+                    <div style="display: flex; align-items: center;">
+                        <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-danger" style="margin-right: 10px;">
+                            @* Margin added to Edit link *@
+                            Edit
+                        </a>
+                        <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id" style="display:inline;">
+                            <button type="submit" class="btn glowing-button" onclick="return confirm('Are you sure?')">
+                                Delete
+                            </button>
+                        </form>
+                    </div>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    <a asp-page="/Admins/Details" asp-route-id="1" class="btn btn-danger">Back to Admin</a>
+</div>
