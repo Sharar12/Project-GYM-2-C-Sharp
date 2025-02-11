@@ -1,0 +1,95 @@
+﻿@page
+@model GYMWeb.Pages.Employees.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th class="glowing-header">
+                @Html.DisplayNameFor(model => model.Employee[0].name)
+            </th>
+            <th class="glowing-header">
+                @Html.DisplayNameFor(model => model.Employee[0].email)
+            </th>
+            <th class="glowing-header">
+                @Html.DisplayNameFor(model => model.Employee[0].password)
+            </th>
+            <th class="glowing-header">
+                @Html.DisplayNameFor(model => model.Employee[0].age)
+            </th>
+            <th class="glowing-header">
+                @Html.DisplayNameFor(model => model.Employee[0].address)
+            </th>
+            <th class="glowing-header">
+                @Html.DisplayNameFor(model => model.Employee[0].phone)
+            </th>
+            <th class="glowing-header">
+                @Html.DisplayNameFor(model => model.Employee[0].gender)
+            </th>
+            <th class="glowing-header">
+                @Html.DisplayNameFor(model => model.Employee[0].role)
+            </th>
+            <th class="glowing-header">
+                @Html.DisplayNameFor(model => model.Employee[0].experience)
+            </th>
+            <th class="glowing-header">
+                @Html.DisplayNameFor(model => model.Employee[0].schedule)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Employee)
+        {
+            <tr>
+                <td class="glowing-text">
+                    @Html.DisplayFor(modelItem => item.name)
+                </td>
+                <td class="glowing-text">
+                    @Html.DisplayFor(modelItem => item.email)
+                </td>
+                <td class="glowing-text">
+                    @Html.DisplayFor(modelItem => item.password)
+                </td>
+                <td class="glowing-text">
+                    @Html.DisplayFor(modelItem => item.age)
+                </td>
+                <td class="glowing-text">
+                    @Html.DisplayFor(modelItem => item.address)
+                </td>
+                <td class="glowing-text">
+                    @Html.DisplayFor(modelItem => item.phone)
+                </td>
+                <td class="glowing-text">
+                    @Html.DisplayFor(modelItem => item.gender)
+                </td>
+                <td class="glowing-text">
+                    @Html.DisplayFor(modelItem => item.role)
+                </td>
+                <td class="glowing-text">
+                    @Html.DisplayFor(modelItem => item.experience)
+                </td>
+                <td class="glowing-text">
+                    @Html.DisplayFor(modelItem => item.schedule)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@item.Id" style="display:inline;">
+                        <button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this employee?')">
+                            Delete
+                        </button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
